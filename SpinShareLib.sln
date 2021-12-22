@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinShareLib", "SpinShareLib\SpinShareLib.csproj", "{B413C349-F876-4593-9D86-ACFF5F101837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinShareLibTests", "SpinShareLibTests\SpinShareLibTests.csproj", "{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B413C349-F876-4593-9D86-ACFF5F101837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B413C349-F876-4593-9D86-ACFF5F101837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B413C349-F876-4593-9D86-ACFF5F101837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B413C349-F876-4593-9D86-ACFF5F101837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69529EAC-20E0-4814-83F3-D606C1373460}
+	EndGlobalSection
+EndGlobal
