@@ -25,63 +25,63 @@ namespace SpinShareLib
             this.client = client;
         }
         
-        async public Task<Content> ping()
+        public async Task<Content> ping()
         {
             return await this.getApiResultAsType<Content>($"{this.apiBase}ping");
         }
-        async public Task<Content<Promo[]>> getPromos()
+        public async Task<Content<Promo[]>> getPromos()
         {
             return await this.getApiResultAsType<Content<Promo[]>>($"{this.apiBase}promos");
         }
-        async public Task<Content<Song[]>> getNewSongs(int _offset)
+        public async Task<Content<Song[]>> getNewSongs(int offset)
         {
-            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/new/{_offset}");
+            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/new/{offset}");
         }
-        async public Task<Content<Song[]>> getHotThisWeekSongs(int _offset)
+        public async Task<Content<Song[]>> getHotThisWeekSongs(int offset)
         {
-            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/hotThisWeek/{_offset}");
+            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/hotThisWeek/{offset}");
         }
-        async public Task<Content<SongDetail[]>> getTournamentMapPool()
+        public async Task<Content<SongDetail[]>> getTournamentMapPool()
         {
             return await this.getApiResultAsType<Content<SongDetail[]>>($"{this.apiBase}tournament/mappool");
         }
-        async public Task<Content<SongDetail>> getSongDetail(string _songId)
+        public async Task<Content<SongDetail>> getSongDetail(string songId)
         {
-            return await this.getApiResultAsType<Content<SongDetail>>($"{this.apiBase}song/{_songId}");
+            return await this.getApiResultAsType<Content<SongDetail>>($"{this.apiBase}song/{songId}");
         }
-        async public Task<Content<Reviews>> getSongDetailReviews(string _songId)
+        public async Task<Content<Reviews>> getSongDetailReviews(string songId)
         {
-            return await this.getApiResultAsType<Content<Reviews>>($"{this.apiBase}song/{_songId}/reviews");
+            return await this.getApiResultAsType<Content<Reviews>>($"{this.apiBase}song/{songId}/reviews");
         }
-        async public Task<Content<SpinPlays>> getSongDetailSpinPlays(string _songId)
+        public async Task<Content<SpinPlays>> getSongDetailSpinPlays(string _songId)
         {
             return await this.getApiResultAsType<Content<SpinPlays>>($"{this.apiBase}song/{_songId}/spinplays");
         }
-        async public Task<Content<UserDetail>> getUserDetail(string _userId)
+        public async Task<Content<UserDetail>> getUserDetail(string userId)
         {
-            return await this.getApiResultAsType<Content<UserDetail>>($"{this.apiBase}user/{_userId}");
+            return await this.getApiResultAsType<Content<UserDetail>>($"{this.apiBase}user/{userId}");
         }
-        async public Task<Content<Song[]>> getUserCharts(string _userId)
+        public async Task<Content<Song[]>> getUserCharts(string userId)
         {
-            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}user/{_userId}/charts");
+            return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}user/{userId}/charts");
         }
-        async public Task<Content<Reviews.Review[]>> getUserReviews(string _userId)
+        public async Task<Content<Reviews.Review[]>> getUserReviews(string userId)
         {
-            return await this.getApiResultAsType<Content<Reviews.Review[]>>($"{this.apiBase}user/{_userId}/reviews");
+            return await this.getApiResultAsType<Content<Reviews.Review[]>>($"{this.apiBase}user/{userId}/reviews");
         }
-        async public Task<Content<SpinPlays.Spinplay[]>> getUserSpinPlays(string _userId)
+        public async Task<Content<SpinPlays.Spinplay[]>> getUserSpinPlays(string userId)
         {
-            return await this.getApiResultAsType<Content<SpinPlays.Spinplay[]>>($"{this.apiBase}user/{_userId}/spinplays");
+            return await this.getApiResultAsType<Content<SpinPlays.Spinplay[]>>($"{this.apiBase}user/{userId}/spinplays");
         }
-        async public Task<Content<Search>> search(string _query)
+        public async Task<Content<Search>> search(string query)
         {
-            return await this.getApiResultAsType<Content<Search>>($"{this.apiBase}search/{_query}");
+            return await this.getApiResultAsType<Content<Search>>($"{this.apiBase}search/{query}");
         }
-        async public Task<Content<Search>> searchAll()
+        public async Task<Content<Search>> searchAll()
         {
             return await this.getApiResultAsType<Content<Search>>($"{this.apiBase}searchAll");
         }
-        async private Task<T> getApiResultAsType<T>(string apiPath)
+        private async Task<T> getApiResultAsType<T>(string apiPath)
         {
             var resp = await client.GetAsync(apiPath);
             if (resp.StatusCode == System.Net.HttpStatusCode.OK)
