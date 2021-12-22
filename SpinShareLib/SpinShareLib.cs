@@ -127,8 +127,8 @@ namespace SpinShareLib
 
         public class Song
         {
+            public int id;
             public int? 
-                id,
                 easyDifficulty,
                 normalDifficulty,
                 hardDifficulty,
