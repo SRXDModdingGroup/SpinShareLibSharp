@@ -12,17 +12,17 @@ namespace SpinShareLib.Tests
     [TestClass()]
     public class SSAPITests
     {
-        public SSAPI inst;
+        private readonly SSAPI _inst;
         public SSAPITests()
         {
-            inst = new SSAPI();
+            _inst = new SSAPI();
         }
 
         [TestMethod()]
-        public void ping()
+        public void getPing()
         {
             Task.Run(async () => {
-               var thing = await inst.ping();
+               var thing = await _inst.ping();
                Console.WriteLine(thing.status);
             }).GetAwaiter().GetResult();
             
@@ -31,7 +31,7 @@ namespace SpinShareLib.Tests
         public void getPromos()
         {
             Task.Run(async () => {
-                var thing = await inst.getPromos();
+                var thing = await _inst.getPromos();
                 Console.WriteLine(thing.data[0].button.data);
             }).GetAwaiter().GetResult();
         }
@@ -39,7 +39,7 @@ namespace SpinShareLib.Tests
         public void getNewSongs()
         {
             Task.Run(async () => {
-                var thing = await inst.getNewSongs(0);
+                var thing = await _inst.getNewSongs(0);
                 Console.WriteLine(thing.data[0].id);
             }).GetAwaiter().GetResult();
 
@@ -48,7 +48,7 @@ namespace SpinShareLib.Tests
         public void getHotThisWeekSongs()
         {
             Task.Run(async () => {
-                var thing = await inst.getHotThisWeekSongs(0);
+                var thing = await _inst.getHotThisWeekSongs(0);
                 Console.WriteLine(thing.data[0].id);
             }).GetAwaiter().GetResult();
         }
@@ -56,7 +56,7 @@ namespace SpinShareLib.Tests
         public void getSongDetail()
         {
             Task.Run(async () => {
-                var thing = await inst.getSongDetail("1234");
+                var thing = await _inst.getSongDetail("1234");
                 Console.WriteLine(thing.data.uploadDate.date);
             }).GetAwaiter().GetResult();
         }
@@ -64,7 +64,7 @@ namespace SpinShareLib.Tests
         public void getSongDetailReviews()
         {
             Task.Run(async () => {
-                var thing = await inst.getSongDetailReviews("1234");
+                var thing = await _inst.getSongDetailReviews("1234");
                 Console.WriteLine(thing.data.reviews[0].comment);
             }).GetAwaiter().GetResult();
         }
@@ -72,7 +72,7 @@ namespace SpinShareLib.Tests
         public void getSongDetailSpinPlays()
         {
             Task.Run(async () => {
-                var thing = await inst.getSongDetailSpinPlays("1234");
+                var thing = await _inst.getSongDetailSpinPlays("1234");
                 Console.WriteLine(thing.data.spinPlays[0].videoUrl);
             }).GetAwaiter().GetResult();
         }
@@ -80,7 +80,7 @@ namespace SpinShareLib.Tests
         public void getUserDetail()
         {
             Task.Run(async () => {
-                var thing = await inst.getUserDetail("72");
+                var thing = await _inst.getUserDetail("72");
                 Console.WriteLine(thing.data.username);
             }).GetAwaiter().GetResult();
         }
@@ -88,7 +88,7 @@ namespace SpinShareLib.Tests
         public void getUserCharts()
         {
             Task.Run(async () => {
-                var thing = await inst.getUserCharts("72");
+                var thing = await _inst.getUserCharts("72");
                 Console.WriteLine(thing.data[0].title);
             }).GetAwaiter().GetResult();
         }
@@ -96,7 +96,7 @@ namespace SpinShareLib.Tests
         public void getUserReviews()
         {
             Task.Run(async () => {
-                var thing = await inst.getUserReviews("72");
+                var thing = await _inst.getUserReviews("72");
                 Console.WriteLine(thing.data[0].id);
             }).GetAwaiter().GetResult();
         }
@@ -104,15 +104,15 @@ namespace SpinShareLib.Tests
         public void getUserSpinPlays()
         {
             Task.Run(async () => {
-                var thing = await inst.getUserSpinPlays("20");
+                var thing = await _inst.getUserSpinPlays("20");
                 Console.WriteLine(thing.data[0].id);
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
-        public void search()
+        public void getSearch()
         {
             Task.Run(async () => {
-                var thing = await inst.search("ayanamy");
+                var thing = await _inst.search("ayanamy");
                 Console.WriteLine(thing.data.users[0].id);
             }).GetAwaiter().GetResult();
         }

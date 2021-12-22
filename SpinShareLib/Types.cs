@@ -149,8 +149,7 @@ namespace SpinShareLib
         public class Date
         {
             public DateTime date;
-            public string
-                timezone;
+            public string stimezone;
             public int timezone_type;
         }
     }
