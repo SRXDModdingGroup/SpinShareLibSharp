@@ -29,12 +29,10 @@ namespace SpinShareLib
         {
             return await this.getApiResultAsType<Content>($"{this.apiBase}ping");
         }
-
         async public Task<Content<Promo[]>> getPromos()
         {
             return await this.getApiResultAsType<Content<Promo[]>>($"{this.apiBase}promos");
         }
-
         async public Task<Content<Song[]>> getNewSongs(int _offset)
         {
             return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/new/{_offset}");
@@ -43,17 +41,18 @@ namespace SpinShareLib
         {
             return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/hotThisWeek/{_offset}");
         }
-
+        async public Task<Content<SongDetail[]>> getTournamentMapPool()
+        {
+            return await this.getApiResultAsType<Content<SongDetail[]>>($"{this.apiBase}tournament/mappool");
+        }
         async public Task<Content<SongDetail>> getSongDetail(string _songId)
         {
             return await this.getApiResultAsType<Content<SongDetail>>($"{this.apiBase}song/{_songId}");
         }
-
         async public Task<Content<Reviews>> getSongDetailReviews(string _songId)
         {
             return await this.getApiResultAsType<Content<Reviews>>($"{this.apiBase}song/{_songId}/reviews");
         }
-
         async public Task<Content<SpinPlays>> getSongDetailSpinPlays(string _songId)
         {
             return await this.getApiResultAsType<Content<SpinPlays>>($"{this.apiBase}song/{_songId}/spinplays");
