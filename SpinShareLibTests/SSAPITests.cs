@@ -117,4 +117,30 @@ namespace SpinShareLib.Tests
             }).GetAwaiter().GetResult();
         }
     }
+    
+    [TestClass()]
+    public class SSAPILargeTests {
+        private readonly SSAPI _inst;
+        public SSAPILargeTests()
+        {
+            _inst = new SSAPI();
+        }
+        
+        [TestMethod()]
+        public void getTournamentMapPool()
+        {
+            Task.Run(async () => {
+                var thing = await _inst.getTournamentMapPool();
+                Console.WriteLine(thing.data[0].id);
+            }).GetAwaiter().GetResult();
+        }
+        [TestMethod()]
+        public void searchAll()
+        {
+            Task.Run(async () => {
+                var thing = await _inst.searchAll();
+                Console.WriteLine(thing.data.songs[0]);
+            }).GetAwaiter().GetResult();
+        }
+    }
 }
