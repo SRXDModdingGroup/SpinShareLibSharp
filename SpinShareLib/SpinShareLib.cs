@@ -17,11 +17,12 @@ namespace SpinShareLib
 
         public HttpClient client { get; private set; }
 
-        public SSAPI()
+        public SSAPI() : this(new HttpClient()) { }
+        public SSAPI(HttpClient client)
         {
             this.apiBase = "https://spinsha.re/api/";
             this.supportedVersion = 1;
-            this.client = new HttpClient();
+            this.client = client;
         }
         
         async public Task<Content> ping()
