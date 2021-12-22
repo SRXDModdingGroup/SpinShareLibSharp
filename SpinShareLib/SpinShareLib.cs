@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
 using SpinShareLib.Types;
+using System.Web.Script.Serialization;
 
 namespace SpinShareLib
 {
@@ -17,12 +17,15 @@ namespace SpinShareLib
 
         public HttpClient client { get; private set; }
 
+        public JavaScriptSerializer serializer { get; private set; }
+
         public SSAPI() : this(new HttpClient()) { }
         public SSAPI(HttpClient client)
         {
             this.apiBase = "https://spinsha.re/api/";
             this.supportedVersion = 1;
             this.client = client;
+            this.serializer = new JavaScriptSerializer();
         }
         
         async public Task<Content> ping()
@@ -85,7 +88,8 @@ namespace SpinShareLib
             var resp = await client.GetAsync(apiPath);
             if (resp.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<T>(await resp.Content.ReadAsStringAsync());
+                return this.serializer.Deserialize<T>(await resp.Content.ReadAsStringAsync());
+                /*return JsonConvert.DeserializeObject<T>(await resp.Content.ReadAsStringAsync());*/
             }
             else
             {
