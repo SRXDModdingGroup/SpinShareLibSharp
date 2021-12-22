@@ -240,8 +240,8 @@ namespace SpinShareLib
 
         public class Date
         {
-            public string 
-                date,
+            public DateTime date;
+            public string
                 timezone;
             public int timezone_type;
         }

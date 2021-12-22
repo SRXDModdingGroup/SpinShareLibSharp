@@ -57,7 +57,7 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await inst.getSongDetail("1234");
-                Console.WriteLine(thing.data.title);
+                Console.WriteLine(thing.data.uploadDate.date);
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
