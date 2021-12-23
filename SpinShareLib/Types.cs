@@ -80,7 +80,6 @@ namespace SpinShareLib
                     zip;
             }
         }
-
         public class SongDetailTournament : SongDetail
         {
             public string srtbMD5;
