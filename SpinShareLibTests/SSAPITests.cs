@@ -3,6 +3,7 @@ using SpinShareLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
@@ -120,10 +121,12 @@ namespace SpinShareLib.Tests
     
     [TestClass()]
     public class SSAPILargeTests {
+        private readonly HttpClient _client;
         private readonly SSAPI _inst;
         public SSAPILargeTests()
         {
-            _inst = new SSAPI();
+            _client = new HttpClient();
+            _inst = new SSAPI(_client);
         }
         
         [TestMethod()]
