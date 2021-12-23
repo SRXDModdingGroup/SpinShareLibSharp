@@ -113,6 +113,19 @@ namespace SpinShareLib
 
             }
         }
+        public class Playlist
+        {
+            public int id;
+            public string
+                title,
+                description,
+                fileReference,
+                cover;
+            public User user;
+            public SongDetail[] songs;
+            public bool? isOfficial;
+        }
+        
         public class User
         {
             public int id;
