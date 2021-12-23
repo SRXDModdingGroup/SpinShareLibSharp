@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SpinShareLib 
 {
@@ -65,6 +67,7 @@ namespace SpinShareLib
                 downloads,
                 publicationStatus;
             public string description;
+            [JsonConverter(typeof(StrObjectToArr))]
             public string[] tags;
             public Date uploadDate;
             public Paths paths;

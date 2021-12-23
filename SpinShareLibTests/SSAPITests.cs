@@ -56,8 +56,8 @@ namespace SpinShareLib.Tests
         public void getSongDetail()
         {
             Task.Run(async () => {
-                var thing = await _inst.getSongDetail("1234");
-                Console.WriteLine(thing.data.uploadDate.date);
+                var thing = await _inst.getSongDetail("4220");
+                Console.WriteLine(thing.data.tags.GetType());
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
@@ -65,7 +65,7 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await _inst.getSongDetailReviews("1234");
-                Console.WriteLine(thing.data.reviews[0].comment);
+                Console.WriteLine(thing.data.reviews[0]);
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
