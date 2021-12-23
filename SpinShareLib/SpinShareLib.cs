@@ -53,9 +53,13 @@ namespace SpinShareLib
         {
             return await this.getApiResultAsType<Content<Reviews>>($"{this.apiBase}song/{songId}/reviews");
         }
-        public async Task<Content<SpinPlays>> getSongDetailSpinPlays(string _songId)
+        public async Task<Content<SpinPlays>> getSongDetailSpinPlays(string songId)
         {
-            return await this.getApiResultAsType<Content<SpinPlays>>($"{this.apiBase}song/{_songId}/spinplays");
+            return await this.getApiResultAsType<Content<SpinPlays>>($"{this.apiBase}song/{songId}/spinplays");
+        }
+        public async Task<Content<Playlist>> getPlaylist(string playlistId)
+        {
+            return await this.getApiResultAsType<Content<Playlist>>($"{this.apiBase}playlist/{playlistId}");
         }
         public async Task<Content<UserDetail>> getUserDetail(string userId)
         {
