@@ -8,7 +8,6 @@ namespace SpinShareLib
 {
     class StrObjectToArr : JsonConverter
     {
-        private Type _type;
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(string[]);
