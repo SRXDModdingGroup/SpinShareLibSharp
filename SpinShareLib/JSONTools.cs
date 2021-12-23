@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -23,7 +22,7 @@ namespace SpinShareLib
             catch
             {
                 JObject obj = JObject.Load(reader);
-                return Array.ConvertAll(obj.PropertyValues().ToArray(), s => (string)s);;
+                return Array.ConvertAll(obj.PropertyValues().ToArray(), s => (string)s);
             }
         }
 
