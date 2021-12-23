@@ -80,6 +80,11 @@ namespace SpinShareLib
                     zip;
             }
         }
+
+        public class SongDetailTournament : SongDetail
+        {
+            public string srtbMD5;
+        }
         public class Reviews
         {
             public bool average;

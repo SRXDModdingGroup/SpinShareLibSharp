@@ -41,9 +41,9 @@ namespace SpinShareLib
         {
             return await this.getApiResultAsType<Content<Song[]>>($"{this.apiBase}songs/hotThisWeek/{offset}");
         }
-        public async Task<Content<SongDetail[]>> getTournamentMapPool()
+        public async Task<Content<SongDetailTournament[]>> getTournamentMapPool()
         {
-            return await this.getApiResultAsType<Content<SongDetail[]>>($"{this.apiBase}tournament/mappool");
+            return await this.getApiResultAsType<Content<SongDetailTournament[]>>($"{this.apiBase}tournament/mappool");
         }
         public async Task<Content<SongDetail>> getSongDetail(string songId)
         {
