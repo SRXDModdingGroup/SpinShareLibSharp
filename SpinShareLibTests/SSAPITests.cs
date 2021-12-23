@@ -78,6 +78,14 @@ namespace SpinShareLib.Tests
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
+        public void getPlaylist()
+        {
+            Task.Run(async () => {
+                var thing = await _inst.getPlaylist("10");
+                Console.WriteLine(thing.data.user.username);
+            }).GetAwaiter().GetResult();
+        }
+        [TestMethod()]
         public void getUserDetail()
         {
             Task.Run(async () => {
@@ -106,6 +114,14 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await _inst.getUserSpinPlays("20");
+                Console.WriteLine(thing.data[0].id);
+            }).GetAwaiter().GetResult();
+        }
+        [TestMethod()]
+        public void getUserPlaylists()
+        {
+            Task.Run(async () => {
+                var thing = await _inst.getUserPlaylists("278");
                 Console.WriteLine(thing.data[0].id);
             }).GetAwaiter().GetResult();
         }
