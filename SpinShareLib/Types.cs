@@ -70,6 +70,7 @@ namespace SpinShareLib
             [JsonConverter(typeof(StrObjectToArr))]
             public string[] tags;
             public Date uploadDate;
+            public Date updateDate;
             public Paths paths;
             public class Paths
             {
@@ -153,7 +154,7 @@ namespace SpinShareLib
         {
             public DateTime date;
             public string stimezone;
-            public int timezone_type;
+            public int? timezone_type;
         }
     }
 }
