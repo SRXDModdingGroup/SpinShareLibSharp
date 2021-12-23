@@ -16,7 +16,6 @@ namespace SpinShareLib
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            Console.WriteLine(reader.GetType());
             try 
             {
                 JArray arr = JArray.Load(reader);
@@ -25,12 +24,7 @@ namespace SpinShareLib
             catch
             {
                 JObject obj = JObject.Load(reader);
-                var temp = new List<string>();
-                foreach (string value in obj.PropertyValues())
-                {
-                    temp.Add(value);
-                }
-                return temp.ToArray();
+                return Array.ConvertAll(obj.PropertyValues().ToArray(), s => (string)s);;
             }
         }
 
