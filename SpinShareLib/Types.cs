@@ -68,7 +68,7 @@ namespace SpinShareLib
                 publicationStatus;
             public string description;
             [JsonConverter(typeof(StrObjectToArr))]
-            public string[] tags { get; set; }
+            public string[] tags;
             public Date uploadDate;
             public Date updateDate;
             public Paths paths;
