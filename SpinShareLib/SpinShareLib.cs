@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,27 @@ namespace SpinShareLib
         public async Task<Content<SongDetail>> getSongDetail(string songId)
         {
             return await this.getApiResultAsType<Content<SongDetail>>($"{this.apiBase}song/{songId}");
+        }
+        public async Task<(HttpResponseMessage response, Content<SongDetail> songdetail)> downloadSongZipStream(string songId)
+        {
+            var song = await getSongDetail(songId);
+            return (await client.GetAsync(song.data.paths.zip), song);
+        }
+        public async Task<bool> downloadSongZip(string songId, string directoryPath)
+        {
+            try
+            {
+                var tup = await downloadSongZipStream(songId);
+                using (var fs = new FileStream(Path.Combine(directoryPath, $"{tup.songdetail.data.fileReference}.srtb"), FileMode.CreateNew))
+                {
+                    await tup.response.Content.CopyToAsync(fs);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         public async Task<Content<Reviews>> getSongDetailReviews(string songId)
         {

@@ -2,6 +2,7 @@
 using SpinShareLib;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -59,6 +60,13 @@ namespace SpinShareLib.Tests
             Task.Run(async () => {
                 var thing = await _inst.getSongDetail("1234");
                 thing.data.tags.ToList().ForEach(i => Console.WriteLine(i.ToString()));
+            }).GetAwaiter().GetResult();
+        }
+        [TestMethod()]
+        public void downloadSongZip()
+        {
+            Task.Run(async () => {
+                await _inst.downloadSongZip("1234", Path.Combine(Path.GetTempPath()));
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
