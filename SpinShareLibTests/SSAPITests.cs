@@ -150,7 +150,7 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await _inst.getTournamentMapPool();
-                Console.WriteLine(thing.data[0].id);
+                thing.data[32].tags.ToList().ForEach(i => Console.WriteLine(i.ToString()));
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
@@ -158,7 +158,7 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await _inst.searchAll();
-                Console.WriteLine(thing.data.songs[0]);
+                Console.WriteLine(thing.data.songs.Length);
             }).GetAwaiter().GetResult();
         }
     }
