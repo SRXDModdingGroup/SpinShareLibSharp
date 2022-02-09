@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.Json;
 using Newtonsoft.Json;
 using SpinShareLib.Types;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace SpinShareLib
 {
@@ -94,7 +96,15 @@ namespace SpinShareLib
             var resp = await client.GetAsync(apiPath);
             if (resp.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<T>(await resp.Content.ReadAsStringAsync());
+                var options = new JsonSerializerOptions
+                {
+                    ReadCommentHandling = JsonCommentHandling.Skip,
+                    AllowTrailingCommas = true,
+                    IncludeFields = true,
+                    Converters = { new DateTimeParse(), new StrObjectToArr() }
+                };
+                return JsonSerializer.Deserialize<T>(await resp.Content.ReadAsStringAsync(), options);
+                // return JsonConvert.DeserializeObject<T>(await resp.Content.ReadAsStringAsync());
             }
             else
             {
