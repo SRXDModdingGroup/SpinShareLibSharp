@@ -66,7 +66,9 @@ namespace SpinShareLib
                 views,
                 downloads,
                 publicationStatus;
-            public string description;
+            public string 
+                description,
+                fileReference;
             [JsonConverter(typeof(StrObjectToArr))]
             public string[] tags;
             public Date uploadDate;
