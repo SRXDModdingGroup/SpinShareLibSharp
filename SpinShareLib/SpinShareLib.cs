@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
-using Newtonsoft.Json;
 using SpinShareLib.Types;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -101,7 +100,7 @@ namespace SpinShareLib
                     ReadCommentHandling = JsonCommentHandling.Skip,
                     AllowTrailingCommas = true,
                     IncludeFields = true,
-                    Converters = { new DateTimeParse(), new StrObjectToArr() }
+                    Converters = { new DateTimeParse() }
                 };
                 return JsonSerializer.Deserialize<T>(await resp.Content.ReadAsStringAsync(), options);
                 // return JsonConvert.DeserializeObject<T>(await resp.Content.ReadAsStringAsync());
