@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using System.Threading;
 using SpinShareLib.Types;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -18,6 +19,8 @@ namespace SpinShareLib
         public int supportedVersion { get; private set; }
 
         public HttpClient client { get; private set; }
+        
+        public SemaphoreSlim semaphore { get; private set; }
 
         public SSAPI() : this(new HttpClient()) { }
         public SSAPI(HttpClient client)
@@ -25,6 +28,7 @@ namespace SpinShareLib
             this.apiBase = "https://spinsha.re/api/";
             this.supportedVersion = 1;
             this.client = client;
+            semaphore = new SemaphoreSlim(1);
         }
         
         public async Task<Content> ping()
@@ -70,6 +74,18 @@ namespace SpinShareLib
             catch
             {
                 return false;
+            }
+        }
+        public async Task<bool> downloadSongZipAddToQueue(string songId, string directoryPath)
+        {
+            await semaphore.WaitAsync();
+            try
+            {
+                return await downloadSongZip(songId, directoryPath);
+            }
+            finally
+            {
+                semaphore.Release();
             }
         }
         public async Task<Content<Reviews>> getSongDetailReviews(string songId)
