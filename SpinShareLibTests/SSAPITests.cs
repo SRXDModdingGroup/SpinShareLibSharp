@@ -58,7 +58,7 @@ namespace SpinShareLib.Tests
         {
             Task.Run(async () => {
                 var thing = await _inst.getSongDetail("1234");
-                Console.WriteLine(thing.data.updateDate == null);
+                thing.data.tags.ToList().ForEach(i => Console.WriteLine(i.ToString()));
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
