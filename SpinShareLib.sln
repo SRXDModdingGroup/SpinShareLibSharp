@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinShareLib", "SpinShareLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinShareLibTests", "SpinShareLibTests\SpinShareLibTests.csproj", "{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTest", "SimpleTest\SimpleTest.csproj", "{4A9B933C-F88A-4E5B-90A1-C558ECC5978E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90C1D9B5-2591-46BE-B0A9-B2AF06EB1BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9B933C-F88A-4E5B-90A1-C558ECC5978E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9B933C-F88A-4E5B-90A1-C558ECC5978E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9B933C-F88A-4E5B-90A1-C558ECC5978E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9B933C-F88A-4E5B-90A1-C558ECC5978E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
