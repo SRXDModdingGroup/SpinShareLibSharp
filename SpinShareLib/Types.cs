@@ -54,7 +54,7 @@ namespace SpinShareLib
                 title,
                 subtitle,
                 artist,
-                Songer,
+                charter,
                 updateHash,
                 cover,
                 zip;
