@@ -70,15 +70,23 @@ namespace SpinShareLib.Tests
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]
-        public void downloadSongZipAddToQueue()
+        public void downloadSongAndUnzip()
+        {
+            Task.Run(async () => {
+                Console.WriteLine(Path.GetTempPath());
+                await _inst.downloadSongAndUnzip("1234", Path.Combine(Path.GetTempPath()));
+            }).GetAwaiter().GetResult();
+        }
+        [TestMethod()]
+        public void downloadSongAndUnzipAddToQueue()
         {
             var watch = new System.Diagnostics.Stopwatch();
             Task.Run(async () => {
                 watch.Start();
-                await _inst.downloadSongZipAddToQueue("1234", Path.Combine(Path.GetTempPath()));
+                await _inst.downloadSongAndUnzipAddToQueue("1234", Path.Combine(Path.GetTempPath()));
                 watch.Stop();
                 Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
-                await _inst.downloadSongZipAddToQueue("10", Path.Combine(Path.GetTempPath()));
+                await _inst.downloadSongAndUnzipAddToQueue("10", Path.Combine(Path.GetTempPath()));
             }).GetAwaiter().GetResult();
         }
         [TestMethod()]

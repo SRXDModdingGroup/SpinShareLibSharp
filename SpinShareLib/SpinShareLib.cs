@@ -60,12 +60,12 @@ namespace SpinShareLib
             var song = await getSongDetail(songId);
             return (await client.GetAsync(song.data.paths.zip), song);
         }
-        public async Task<bool> downloadSongZip(string songId, string directoryPath)
+        public async Task<bool> downloadSongZip(string songId, string path)
         {
             try
             {
                 var tup = await downloadSongZipStream(songId);
-                using (var fs = new FileStream(Path.Combine(directoryPath, $"{tup.songdetail.data.fileReference}.srtb"), FileMode.CreateNew))
+                using (var fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
                     await tup.response.Content.CopyToAsync(fs);
                 }
@@ -76,12 +76,27 @@ namespace SpinShareLib
                 return false;
             }
         }
-        public async Task<bool> downloadSongZipAddToQueue(string songId, string directoryPath)
+        public async Task<bool> downloadSongAndUnzip(string songId, string directoryPath)
+        {
+            try
+            {
+                var tempFileName = Path.GetTempFileName();
+                await downloadSongZip(songId, tempFileName);
+                System.IO.Compression.ZipFile.ExtractToDirectory(tempFileName, directoryPath);
+                File.Delete(tempFileName);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public async Task<bool> downloadSongAndUnzipAddToQueue(string songId, string directoryPath)
         {
             await semaphore.WaitAsync();
             try
             {
-                return await downloadSongZip(songId, directoryPath);
+                return await downloadSongAndUnzip(songId, directoryPath);
             }
             finally
             {
