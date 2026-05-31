@@ -1,6 +1,9 @@
 using System;
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
+// ReSharper disable UnassignedField.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable CollectionNeverQueried.Global
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace SpinShareLib 
 {
@@ -11,7 +14,7 @@ namespace SpinShareLib
             public int version;
             public int status;
         }
-
+        
         public class Content<T> : Content
         {
             public T data;
